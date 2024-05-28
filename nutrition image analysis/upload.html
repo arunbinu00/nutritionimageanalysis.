@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Image recognition</title>
+
+    <script src="https://unpkg.com/@tensorflow/tfjs"></script>
+    <script src="https://unpkg.com/@tensorflow-models/mobilenet"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="upload.css">
+    <meta http-equiv="refresh" content="1200">
+</head>
+<body>
+
+    <style>
+        body {
+          background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(background.jpg);
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: 100% 100%;
+        }
+
+        </style>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+
+ <div class="banner">
+            <div class="navbar">
+                <img src="logo.png" alt="logo">
+                <ul>
+                    <li><a href="ibm nutrition analyser.html">HOME</a></li>
+                        <li><a href="index.html">BMI CALCULATOR</a></li>
+                </ul>
+
+            </div>
+<br>
+<br><br>
+
+          
+
+          <br></br>
+          <input type="file" onchange="showFiles(event)" accept=".png, .jpg, .jpeg">
+          <br></br>
+          <center>
+          <img id='idImage' style="width: 224px; height: 224px;" align="center">
+          </center>
+          <!--<div id='console'></div>-->
+          <br></br>
+          <center><div id="chart_div"></div></center>
+          <script src="index.js"></script>
+          <br></br>
+      
+      </div>
+      <script type="text/javascript">
+      </script>
+      
+
+      
+
+      
+
+      <br><br><br>
+      <br><br><br>
+      <br><br><br>
+      <br><br><br>
+
+
+    <!-- Poppins Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="upload.css">
+
+
+
+
+    <div class="bottom_aligner">
+
+        <h1>Nutrition Facts</h1>
+
+        <div class="progress" id="progress_0">
+            <h6>Calories</h6>
+            <div class="progress-bar">
+                <div class="progressing"></div>
+                <span class="circle"></span>
+            </div>
+            <p class="percent">0%</p>
+        </div>
+
+        <div class="progress" id="progress_1">
+            <h6>Total Fat</h6>
+            <div class="progress-bar">
+                <div class="progressing"></div>
+                <span class="circle"></span>
+            </div>
+            <p class="percent">0%</p>
+        </div>
+
+        <div class="progress" id="progress_2">
+            <h6>Sugar</h6>
+            <div class="progress-bar">
+                <div class="progressing"></div>
+                <span class="circle"></span>
+            </div>
+            <p class="percent">0%</p>
+        </div>
+
+        <div class="progress" id="progress_3">
+            <h6>Potassium</h6>
+            <div class="progress-bar">
+                <div class="progressing"></div>
+                <span class="circle"></span>
+            </div>
+            <p class="percent">0%</p>
+        </div>
+
+        <div class="progress" id="progress_4">
+            <h6>Cholesterol</h6>
+            <div class="progress-bar">
+                <div class="progressing"></div>
+                <span class="circle"></span>
+            </div>
+            <p class="percent">0%</p>
+        </div>
+
+        <div class="progress" id="progress_5">
+            <h6>Protein</h6>
+            <div class="progress-bar">
+                <div class="progressing"></div>
+                <span class="circle"></span>
+            </div>
+            <p class="percent">0%</p>
+        </div>
+
+        <div class="progress" id="progress_6">
+            <h6>Calcium</h6>
+            <div class="progress-bar">
+                <div class="progressing"></div>
+                <span class="circle"></span>
+            </div>
+            <p class="percent">0%</p>
+        </div>
+
+        <div class="progress" id="progress_7">
+            <h6>Fiber</h6>
+            <div class="progress-bar">
+                <div class="progressing"></div>
+                <span class="circle"></span>
+            </div>
+            <p class="percent">0%</p>
+        </div>
+
+    </div>
+ 
+    <!-- JS File -->
+    <script>
+
+
+
+
+    function start(i) {
+
+        var percent = document.querySelector(`#progress_${i} .percent`);
+        var progressing = document.querySelector(`#progress_${i} .progressing`);
+        var circle = document.querySelector(`#progress_${i} .circle`);
+    
+        requestAnimationFrame(startProgress);
+    
+        var progress = 0;
+        var random = parseInt(Math.random() * 100);
+    
+        function startProgress() {
+            progress += 1;
+            if (progress <= random) {
+                percent.innerHTML = parseInt(progress) + '%';
+                progressing.style.width = progress + '%';
+                circle.style.left = progress + '%';
+            }
+            requestAnimationFrame(startProgress);
+        }
+    
+    }
+    
+    for (var i = 0; i < 8; i++) {
+        start(i);
+    }
+    
+    </script>
+
+</body>
+
+</html>
